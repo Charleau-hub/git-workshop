@@ -1,0 +1,42 @@
+version: "3"
+
+vars:
+  _DEFAULT_PYTHON_RELEASE: "3.12"
+  PYTHON_RELEASE: "{{default ._DEFAULT_PYTHON_RELEASE .PYTHON_RELEASE}}"
+  OCI_IMG: "public.ecr.aws/docker/library/python:{{.PYTHON_RELEASE}}-bullseye"
+  DOCKER_CMD:
+    sh: which docker || echo podman
+
+tasks:
+  clean:
+    desc: Removes cache folders, etc
+    cmds:
+      - echo "Clean"
+      - rm -rf presentation
+
+  build:
+    aliases:
+      - build-presentation
+      - markdown-slides
+    vars:
+      OPEN: "{{default true .OPEN}}"
+      MARKDOWN_SLIDES: git+https://gitlab.com/da_doomer/markdown-slides.git
+    sources:
+      - presentation.md
+    generates:
+      - presentation/index.html
+    cmds:
+      - >-
+        {{.DOCKER_CMD}} run
+        -it
+        --rm
+        -v $(pwd):/workdir
+        -w /workdir
+        --entrypoint bash
+        {{.OCI_IMG}}
+        -c '
+        pip install --root-user-action=ignore -qqq {{.MARKDOWN_SLIDES}} &&
+        mdslides presentation.md --include media
+        '
+      - >-
+        {{if eq .OPEN "true"}}open presentation/index.html{{end}}
