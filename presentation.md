@@ -1,19 +1,3 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-<title>Unlock the Power of Git</title>
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-<link rel="stylesheet" href="dist/theme/white.css" id="theme">
-		<!-- Theme used for syntax highlighted code -->
-<link rel="stylesheet" href="plugin/highlight/zenburn.min.css" id="highlight-theme"></head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-<section data-markdown  ><textarea data-template>
 
 [comment]: # (This presentation was made with markdown-slides)
 [comment]: # (This is a CommonMark compliant comment. It will not be included in the presentation.)
@@ -21,14 +5,21 @@
 [comment]: # (mdslides presentation.md --include media)
 
 [comment]: # (Set the theme:)
+[comment]: # (THEME = serif)
+[comment]: # (CODE_THEME = base16/zenburn)
 [comment]: # (The list of themes is at https://revealjs.com/themes/)
 [comment]: # (The list of code themes is at https://highlightjs.org/)
 
 [comment]: # "You can also use quotes instead of parenthesis"
 [comment]: # 'Single quotes work too'
+[comment]: # "THEME = white"
 
 [comment]: # (Pass optional settings to reveal.js:)
+[comment]: # (controls: true)
+[comment]: # (keyboard: true)
 [comment]: # (markdown: { smartypants: true })
+[comment]: # (hash: false)
+[comment]: # (respondToHashChanges: false)
 [comment]: # (Other settings are documented at https://revealjs.com/config/)
 
 # Unlock the Power of Git
@@ -41,8 +32,7 @@
 Charlotte Moreno Møller | September 19, 2025
 
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (!!!)
 
 ## Outline
 - Why version control and what is Git? <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -51,30 +41,25 @@ Charlotte Moreno Møller | September 19, 2025
 - Exploring your code history <!-- .element: class="fragment" data-fragment-index="4" -->
 - Where to go from here <!-- .element: class="fragment" data-fragment-index="6" -->
 
-</textarea></section>
-<section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (!!!)
 
 ## Why version control 
 and 
 ## what is Git?
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 *Does this look familiar?*
 
 ![versions of code](media/versions_of_code.png)<!-- .element: style="height:20vh; max-width:40vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 *Or this?*
 
 ![working with others](media/working_with_others.png)<!-- .element: style="height:20vh; max-width:40vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 **Version Control Systems**
 - one, central repository for the code <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -82,8 +67,7 @@ and
 
 ![VCS](media/VCS.png)<!-- .element: style="height:20vh; max-width:40vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 **Version Control Systems**
 - security: restore code to a previous (running or bugfree) version <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -92,8 +76,7 @@ and
 
 ![VCS](media/VCS.png)<!-- .element: style="height:20vh; max-width:40vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 __Why Git?__
 - It's open source <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -104,15 +87,13 @@ __Why Git?__
 
 *De-facto software industry standard* <!-- .element: class="fragment" data-fragment-index="7" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 What's the difference between Git and GitHub/GitLab?
 
 Git is the Git of GitHub/Lab <!-- .element: class="fragment" data-fragment-index="1" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 They are referred to as *the remote* and a *git forge*<!-- .element: class="fragment" data-fragment-index="1" -->
 - an extra layer of (remote) storage <!-- .element: class="fragment" data-fragment-index="2" -->
@@ -122,16 +103,12 @@ They are referred to as *the remote* and a *git forge*<!-- .element: class="frag
 
 ![remote](media/remotes.png)<!-- .element: style="height:20vh; max-width:40vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-</section>
-<section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (!!!)
 
 ## Git basics
 vocabulary and workflow
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 Ways of working with Git
 
@@ -142,8 +119,7 @@ Ways of working with Git
 
 ![terminals](media/terminals.png) <!-- .element: style="max-height:30vh; max-width:50vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 *Today we'll use the command line*
 
@@ -154,15 +130,13 @@ Ways of working with Git
 *but the logic stays the same* <!-- .element: class="fragment" data-fragment-index="4" -->
 
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 The Git workflow
 
 ![workflow](media/workflow.png) <!-- .element: style="height:40vh; max-width:80vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 *let's get started...*
 
@@ -172,8 +146,7 @@ The Git workflow
 
 ![Git bash](media/git_bash.png) <!-- .element: style="height:30vh; max-width:50vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 Before starting, we need to assure that everybody has configured the same branch as default branch (we'll talk about branches later)
 
@@ -181,8 +154,7 @@ Before starting, we need to assure that everybody has configured the same branch
 git config --global init.defaultBranch main
 ```
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 *Let's prepare a folder to work in*
 
@@ -197,8 +169,7 @@ ls -la 'lists the content, notice the hidden .git folder'
 <!-- .element: data-id="code" -->
 
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 *Let's create our first snapshot*
 
@@ -212,8 +183,7 @@ git commit -m "add file1 and file2" 'type message about this commit'
 ```
 <!-- .element: data-id="code" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 **Congratulations!**
 
@@ -221,8 +191,7 @@ You've created your first snapshot
 
 ![workflow](media/git_init.png) <!-- .element: style="height:40vh; max-width:250vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 **Recap - vocabulary**
 
@@ -234,8 +203,7 @@ a 'commit' -> a snapshot in your repository, that you can go back to <!-- .eleme
 
 ![workflow](media/workflow.png) <!-- .element: style="max-height:20vh; max-width:15vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 **Important Git commands**
 
@@ -249,8 +217,7 @@ git commit -m "my commit message" 'creates a snapshot'
 ```
 <!-- .element: data-id="code" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 Are you seeing something like this?
 
@@ -261,8 +228,7 @@ Welcome to your first [Vim](https://en.wikipedia.org/wiki/Vim_(text_editor)) scr
 That's because you forgot the '-m "some commit message"' <!-- .element: class="fragment" data-fragment-index="2" -->
 
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 To get rid of it, type on your keyboard:
 - ESC (just to be sure to start off a clean plate)
@@ -273,13 +239,11 @@ To get rid of it, type on your keyboard:
 - ':wq' + Enter (this tells Vim to Write and Quit)
 
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 ![workflow](media/vim.png) <!-- .element: style="max-height:60vh; max-width:80vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 Learn Vim in a nice way by playing a [game](https://vim-adventures.com/)
 
@@ -291,16 +255,12 @@ set your default text editor to your preferred text editor on your system using 
 git config –global core.editor “<path to editor> –wait”
 ```
 
-</textarea></section>
-</section>
-<section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (!!!)
 
 ## Working in isolation
 branches, merge and merge conflicts
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 **Classic Git workflow**
 
@@ -313,13 +273,11 @@ branches, merge and merge conflicts
 
 - when the new code is ready, merge to mainline <!-- .element: class="fragment" data-fragment-index="6" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 ![brances](media/branches.png) <!-- .element: style="max-height:50vh; max-width:80vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 
 [Branches](https://git-scm.com/book/ms/v2/Git-Branching-Branches-in-a-Nutshell) in Git are great because:
@@ -329,8 +287,7 @@ branches, merge and merge conflicts
 
 
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 *Let's try it out*
 
@@ -347,13 +304,11 @@ git commit -m "fixed the bug" 'preferably a meaningful message'
 
 *this is the classic Git workflow* <!-- .element: class="fragment" data-fragment-index="9" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 ![merges](media/brace_yourselves.jpg) <!-- .element: style="max-height:40vh; max-width:80vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 **READY? Let's go!**
 
@@ -366,8 +321,7 @@ cat file1.txt 'Yay! We merge the two branches'
 <!-- .element: data-id="code" -->
 
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 Often, more than one person is working on a project
 *we'll have more than one active branch*
@@ -376,8 +330,7 @@ Often, more than one person is working on a project
 
 **this is often how merge conflicts occur** <!-- .element: class="fragment" data-fragment-index="1" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 **A merge conflict occurs if**
 
@@ -387,16 +340,14 @@ Often, more than one person is working on a project
 
 *Git doesn’t know how to resolve this, you'll have to do it* <!-- .element: class="fragment" data-fragment-index="4" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 **Ready for some merge conflict?**
 
 Go back to your terminal... <!-- .element: class="fragment" data-fragment-index="1" -->
 
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 First, let's make some changes on the file in a new branch
 
@@ -408,8 +359,7 @@ git commit -m "changes from new branch"
 ```
 <!-- .element: data-id="code" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 Now, let's go back to main and change the same file
 
@@ -421,8 +371,7 @@ git commit -m "changes from main"
 ```
 <!-- .element: data-id="code" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 Now, we're in trouble!. If I do
 
@@ -434,8 +383,7 @@ I get
 
 ![conflict](media/conflict.png) <!-- .element: style="max-height:30vh; max-width:50vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 Open file1.txt in ANY text editor
 
@@ -446,8 +394,7 @@ Open file1.txt in ANY text editor
 
 Git adds branch-info, markers and divider by default
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 This is how to proceed
 
@@ -456,8 +403,7 @@ This is how to proceed
 
 ![fixed](media/fixed.png) <!-- .element: style="max-height:30vh; max-width:50vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 Go back to the terminal 
 
@@ -468,15 +414,13 @@ git commit -m "fixed merge conflict"
 ```
 <!-- .element: data-id="code" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 **This deserves a round of applause**
 
 ![well done](media/well-done.gif) <!-- .element: style="max-height:30vh; max-width:50vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 **Could this have been avoided?**
 
@@ -486,8 +430,7 @@ In this case, we edited the same file AND the same line <!-- .element: class="fr
 
 Manual fixing is the only way <!-- .element: class="fragment" data-fragment-index="3" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 Working on the same files is source of trouble 
 
@@ -495,31 +438,28 @@ Working on the same files is source of trouble
 
 *Be certain to get latest changes from the main line BEFORE a merge* <!-- .element: class="fragment" data-fragment-index="3" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 There are two ways of doing this
-- pull latest changes from main line and merge to your branch BEFORE you merge back to main line <!-- .element: class="fragment" data-fragment-index="1" -->
+- pull latest changes from main line (this only works if you have a remote repository) and merge to your branch BEFORE you merge back to main line <!-- .element: class="fragment" data-fragment-index="1" -->
 - rebase you branch <!-- .element: class="fragment" data-fragment-index="2" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+
+[comment]: # (|||)
 
 There are subtle differences between the two [approaches](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
 
 Generally: <!-- .element: class="fragment" data-fragment-index="1" -->
-- if you are on a shared main line, do pull+merge <!-- .element: class="fragment" data-fragment-index="1" -->
+- if you are sharing your main line of code with others, do pull+merge <!-- .element: class="fragment" data-fragment-index="1" -->
 - otherwise, rebase is fine <!-- .element: class="fragment" data-fragment-index="12 -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 Let me demonstrate rebase...
 
 Go back to the terminal 
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 Firstly, branch out and make some change 
 
@@ -532,8 +472,7 @@ git commit -m "me brancing out from main"
 ```
 <!-- .element: data-id="code" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 Now, we go back to main and make a change
 
@@ -546,8 +485,7 @@ git add file2.txt 'add the file to staging'
 git commit -m "calling earth from main line"
 ```
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 In our other branch, before merging our changes to main 
 **we rebase to get the latest changes** 
@@ -559,8 +497,7 @@ cat file1.txt 'Does it look correct?'
 cat file2.txt 'Does it look correct?'
 ```
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 Now, we're reday to merge our changes to main
 
@@ -570,8 +507,7 @@ git merge my_branch 'we can merge'
 ```
 <!-- .element: data-id="code" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 **Recap - vocabulary**
 
@@ -581,20 +517,8 @@ The pointer HEAD is always pointing to our current state <!-- .element: class="f
 
 Merge conflicts occur when the same file has been edited in more than one branch <!-- .element: class="fragment" data-fragment-index="3" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
 
-Go to you laptop, find the next section of the pdf and try it out by yourselves
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dVkK36KOcqs?si=43lHfUcnBQS3K7JV&amp;start=10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-We are here to answer your questions on the chat
-
-**Raise your hand ✋ if you're ready to move on**
-
-
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 **Good advice coming from experience**
 
@@ -604,10 +528,7 @@ We are here to answer your questions on the chat
 
 ![live life](media/live_dangerously.jpg) <!-- .element: style="max-height:30vh; max-width:60vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-</section>
-<section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (!!!)
 
 ## Exploring your code history
 *Or, how to save your team the day someone deployes bad code*
@@ -615,8 +536,7 @@ We are here to answer your questions on the chat
 Always on fridays...
 </div>
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 By now, we've already created some entries in our Git repo
 
@@ -628,11 +548,10 @@ git log 'the raw version'
 git log --pretty --oneline --graph 'pretty version'
 'to quit, press "q"'
 ```
-<!-- .element: data-id="code" -->
+<!-- .element: data-id="code" -->q
 
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 Mine looks like this
 
@@ -643,8 +562,12 @@ Mine looks like this
 
 *notice how branch names and commit messages suddenly become important*
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
+
+So, now it's time for a deep dive on how Git manages objects..
+What is actually a branch??
+
+[comment]: # (|||)
 
 Ready for some time travel?
 
@@ -652,8 +575,7 @@ Ready for some time travel?
 
 Git has three commands for travelling in time... <!-- .element: class="fragment" data-fragment-index="1" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 **git reset 'commit-hash' \--hard|medium|soft**
 
@@ -661,23 +583,20 @@ erases bad commits and restores to a previous step <!-- .element: class="fragmen
 
 ![restore](media/restore.png) <!-- .element: style="max-height:40vh; max-width:60vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 **git revert 'commit-hash'**
 
 creates a new commit on top of your git history containing the old state<!-- .element: class="fragment" data-fragment-index="1" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 **git checkout 'commit-hash'** 
 
 let's you access a previous commit BUT puts your work dir in "detached HEAD" state  <!-- .element: class="fragment" data-fragment-index="3" -->
 .. which you'll have to clean up afterwards
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 The least damaging one (from the perspective of preserving the git history)
 
@@ -689,16 +608,14 @@ But most people use brute force with (out of laziness)
 
 Go back to your terminal...
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 But! Let's just remind ourselves ... 
 we are entering muddy waters
 
 ![restore](media/the_dark_zone.png) <!-- .element: style="max-height:60vh; max-width:100vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 *Firstly, identify the commit you want to reset to*
 
@@ -711,8 +628,7 @@ git log --pretty --oneline --graph 'pretty version'
 
 copy the 7 caracter commit-hash
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 *Paste the commit-hash into the command*
 
@@ -726,8 +642,7 @@ git log --pretty --oneline --graph 'pretty version'
 
 Notice how the git log looks like now
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 **BEWARE!**
 
@@ -740,19 +655,7 @@ If you're on a throw away branch or your own branch, you're fine<!-- .element: c
 Usually not allowed on the main line <!-- .element: class="fragment" data-fragment-index="3" -->
 
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
-
-Go to you laptop, find the last section of the pdf and try it out by yourselves
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dVkK36KOcqs?si=43lHfUcnBQS3K7JV&amp;start=10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-We are here to answer your questions on the chat
-
-**Raise your hand ✋ if you're ready to move on**
-
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 When collaborating with others
 
@@ -760,8 +663,7 @@ When collaborating with others
 
 ![guitarre_hero!](media/bad_git_history.png) <!-- .element: style="max-height:60vh; max-width:60vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 Instead, aim for linear
 
@@ -769,31 +671,30 @@ Instead, aim for linear
 
 How to do that? Beyond the scope of this workshop
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 Some advice 
 - try establish a common way of working with git on your team
 	- several patterns exists
 - use [squashing](https://www.geeksforgeeks.org/git/git-squash/) to avoid too many small commits
 
-</textarea></section>
-</section>
-<section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (!!!)
+
+How to squash
+
+
+[comment]: # (!!!)
 
 ## Where to go from here
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 
 ![great!](media/congratulations.gif) <!-- .element: style="max-height:20vh; max-width:60vw; image-rendering: crisp-edges;" -->
 
 You survived this crash course on Git!
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 How to get help with git 
 
@@ -810,57 +711,27 @@ This might not feel very helpfull in the beginning
 
 ![love git!](media/love_git.jpg) <!-- .element: style="max-height:20vh; max-width:60vw; image-rendering: crisp-edges;" -->
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+[comment]: # (|||)
 
 
 I got inspired and borrowed from [Code with Mosh](https://codewithmosh.com/p/the-ultimate-git-course)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8JJ101D3knE?si=xlypA5jy344SKqb2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+A deep dive on the internals of Git can be found [here](https://octobot.medium.com/how-git-internally-works-1f0932067bee)
 
-</textarea></section>
-<section data-markdown  ><textarea data-template>
+
+[comment]: # (|||)
 
 This was created using [markdown-slides](https://gitlab.com/da_doomer/markdown-slides)!
 
 *a beautiful example of the benefits of sharing and collaborating* <!-- .element: class="fragment" data-fragment-index="1" -->
 
-</textarea></section>
-<section data-markdown  data-background-video="media/Novonesis_Logo_Animated_Algae_MossBG.mp4", data-background-video-muted data-background-opacity="0.2"><textarea data-template>
+[comment]: # (|||)
 
 Happy coding!
 
-</textarea></section>
-</section>
-<section data-markdown ><textarea data-template>
+[comment]: # (!!! data-background-video="media/Novonesis_Logo_Animated_Algae_MossBG.mp4", data-background-video-muted data-background-opacity="0.2")
 
 
 
-</textarea></section>
-			</div>
-		</div>
-
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script src="plugin/math/math.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-Reveal.initialize({
-controls : false,
-markdown : {smartypants: true},
-controls : true,
-keyboard : true,
-hash : false,
-respondToHashChanges : false,
-				hash: true,
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
-			});
-		</script>
-	</body>
-</html>

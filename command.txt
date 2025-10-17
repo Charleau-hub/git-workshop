@@ -1,0 +1,102 @@
+########    GIT WORKSHOP COMMANDS   ######
+
+### configuring your default branch ###
+
+git config --global init.defaultBranch main
+
+### Git workflow ###
+
+# setting things up - initializing
+mkdir git_workshop                          # this creates a new, empty folder
+cd git_workshop                             # we change directory (cd) to that folder
+git init                                    # now, we have created a new git project
+ls -la                                      # lists the content, notice the hidden .git folder
+
+
+# creating some files and our first snapshot
+
+echo hello > file1.txt                      # create a textfile with "hello" in it
+echo hello > file2.txt                      # create another textfile
+git status                                  # git keeps track of the new files in red
+git add *                                   # we store the files in staging
+git status                                  # the files are now listed in green
+git commit -m "add file1 and file2"         # type message about this commit
+
+
+# how to quit Vim (if you forgot the -m flag and a message)
+
+To get rid of it, type on your keyboard:
+- ESC (just to be sure to start off a clean plate)
+- I -> this is for Insert mode
+- move the cursor to an un-commented line (~)
+- type your commit message
+- ESC
+- ':wq' + Enter (this tells Vim to Write and Quit)
+
+To set another default text editor, configure git:
+
+git config –global core.editor “<path to editor> –wait”
+
+
+
+### Working in isolation - branches ###
+
+# Creating a new branch
+
+git switch -C bugfix/fix_this                   # creates a branch and switches to it
+echo 'fix this, darling' >> file1.txt           # append some text to file1
+cat file1.txt                                   # output the file, has text been added?
+git status                                      # git detects changes
+git add file1.txt                               # add the file to staging
+git status                                      # check that it was added
+git commit -m "fixed the bug"                   # commit and add a meaningful message
+
+# Merge with mainline of commented
+
+git switch main                                 # go back to main branch
+cat file1.txt                                   # notice, our file is back to old state
+git merge bugfix/fix_this                       # merge the change to main
+cat file1.txt                                   # Yay! We merged the two branches
+
+
+# Merge conflicts - how to create one how to solve it
+
+
+git switch -C feature/new_stuff                 # create a new branch
+echo 'from new branch' >> file1.txt             # append some text
+git add file1.txt                               # add the file to staging
+git commit -m "changes from new branch"         # commit the changes
+
+git switch main                                 # go back to main
+echo 'from main' >> file1.txt                   # append some text to the same file
+git add file1.txt                               # add the file to staging
+git commit -m "changes from main"               # commit the changes
+git merge feature/new_stuff                     # attempting merge  - this fails!
+
+to fix it, edit the file manually (in any text-editor) removing branch-info, markers and dividers
+
+git status                                      # changes detected by git
+git add file1.txt                               # add the file to staging
+git commit -m "fixed merge conflict"            # commit
+
+
+# How to rebase before a merge to get the latest changes from the main line
+
+git switch -C my_branch                         # create a new branch
+echo 'this is from my brand new branch' >> file1.txt # append some text
+cat file1.txt                                   # was text added?
+git add file1.txt                               # add the file to staging
+git commit -m "me brancing out from main"       # commit
+
+git switch main                                 # go back to main line
+echo 'my main line is calling earth' >> file2.txt # append some text
+git add file2.txt                               # add the file to staging
+git commit -m "calling earth from main line"    # commit your changes
+
+git switch my_branch                            # go back to our branch
+git rebase main                                 # this is where we get the latest changes from main
+cat file1.txt                                   # Does it look correct?
+cat file2.txt                                   # Does it look correct?
+
+git switch main                                 # go back to main line
+git merge my_branch                             # we can merge
