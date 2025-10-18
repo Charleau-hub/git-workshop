@@ -29,7 +29,8 @@
 *How to live happily ever after with git*
 ![picture of conflict](media/git_conflicts.jpg)
 
-Charlotte Moreno Møller | September 19, 2025
+IDA Conference Oct 2025
+©Charlotte Moreno Møller
 
 
 [comment]: # (!!!)
@@ -38,7 +39,8 @@ Charlotte Moreno Møller | September 19, 2025
 - Why version control and what is Git? <!-- .element: class="fragment" data-fragment-index="1" -->
 - Git basics: vocabulary and workflow <!-- .element: class="fragment" data-fragment-index="2" -->
 - Working in isolation - branches, merge and merge conflicts <!-- .element: class="fragment" data-fragment-index="3" -->
-- Exploring your code history <!-- .element: class="fragment" data-fragment-index="4" -->
+- A closer look at how Git keeps track of changes <!-- .element: class="fragment" data-fragment-index="4" -->
+- Exploring your code history <!-- .element: class="fragment" data-fragment-index="5" -->
 - Where to go from here <!-- .element: class="fragment" data-fragment-index="6" -->
 
 [comment]: # (!!!)
@@ -113,8 +115,8 @@ vocabulary and workflow
 Ways of working with Git
 
 - GUI and IDEs <!-- .element: class="fragment" data-fragment-index="1" -->
-	- GitHub, GitLab, Azure DevOps <!-- .element: class="fragment" data-fragment-index="2" -->
-	- VS Code, JetBrains <!-- .element: class="fragment" data-fragment-index="3" -->
+	- GitHub, GitLab, Azure DevOps... <!-- .element: class="fragment" data-fragment-index="2" -->
+	- VS Code, JetBrains... <!-- .element: class="fragment" data-fragment-index="3" -->
 - command line <!-- .element: class="fragment" data-fragment-index="4" -->
 
 ![terminals](media/terminals.png) <!-- .element: style="max-height:30vh; max-width:50vw; image-rendering: crisp-edges;" -->
@@ -148,11 +150,12 @@ The Git workflow
 
 [comment]: # (|||)
 
-Before starting, we need to assure that everybody has configured the same branch as default branch (we'll talk about branches later)
+Before starting, we need to assure that everybody has configured the same branch as default branch 
 
 ```js 
 git config --global init.defaultBranch main
 ```
+(we'll talk about branches later)
 
 [comment]: # (|||)
 
@@ -195,7 +198,7 @@ You've created your first snapshot
 
 **Recap - vocabulary**
 
-Local files -> this is our working environment <!-- .element: class="fragment" data-fragment-index="1" -->
+Local files -> this is our working environment. Git call it working tree <!-- .element: class="fragment" data-fragment-index="1" -->
 
 Staging/index -> the intermediate storage <!-- .element: class="fragment" data-fragment-index="2" -->
 
@@ -255,6 +258,13 @@ set your default text editor to your preferred text editor on your system using 
 git config –global core.editor “<path to editor> –wait”
 ```
 
+[comment]: # (|||)
+
+Let's try it out ...
+
+(it's bound to happen at some point in time)
+
+
 [comment]: # (!!!)
 
 ## Working in isolation
@@ -312,7 +322,7 @@ git commit -m "fixed the bug" 'preferably a meaningful message'
 
 **READY? Let's go!**
 
-```js [1|2]
+```js [1|2|3|4]
 git switch main 'go back to main branch'
 cat file1.txt 'notice, our file is back to old state'
 git merge bugfix/fix_this 'merge the change to main'
@@ -328,7 +338,7 @@ Often, more than one person is working on a project
 
 ![more branches](media/potential_merge_conflict.png) <!-- .element: style="max-height:30vh; max-width:80vw; image-rendering: crisp-edges;" -->
 
-**this is often how merge conflicts occur** <!-- .element: class="fragment" data-fragment-index="1" -->
+**this is usually how merge conflicts occur** <!-- .element: class="fragment" data-fragment-index="1" -->
 
 [comment]: # (|||)
 
@@ -361,7 +371,7 @@ git commit -m "changes from new branch"
 
 [comment]: # (|||)
 
-Now, let's go back to main and change the same file
+Now, let's go back to main and change the **same** file
 
 ```js [1|2|3|4]
 git switch main 
@@ -414,6 +424,8 @@ git commit -m "fixed merge conflict"
 ```
 <!-- .element: data-id="code" -->
 
+And that's it! <!-- .element: class="fragment" data-fragment-index="1" -->
+
 [comment]: # (|||)
 
 **This deserves a round of applause**
@@ -432,36 +444,127 @@ Manual fixing is the only way <!-- .element: class="fragment" data-fragment-inde
 
 [comment]: # (|||)
 
-Working on the same files is source of trouble 
+**Recap - vocabulary**
+
+Branches allow to work on code in isolation <!-- .element: class="fragment" data-fragment-index="1" -->
+
+The pointer HEAD is always pointing to our current state <!-- .element: class="fragment" data-fragment-index="2" -->
+
+Merge conflicts occur when the same file has been edited in more than one branch <!-- .element: class="fragment" data-fragment-index="3" -->
+
+
+[comment]: # (|||)
+
+Let's try a real life scenario with branching and merging out in Github
+
+- go to https://github.com/Charleau-hub/collab-code-repo
+- clone it to your laptop or edit it in the web UI
+- try to follow instructions in the README
+
+[comment]: # (!!!)
+
+## A closer look at how Git keeps track of changes
+(This is the nerdy chapter)
+
+[comment]: # (|||)
+
+*Remember the merge conflict?*
+
+Working on the same files is source of trouble <!-- .element: class="fragment" data-fragment-index="1" -->
 
 <div style="font-size: 2em;">Best practice</div> <!-- .element: class="fragment" data-fragment-index="2" -->
 
 *Be certain to get latest changes from the main line BEFORE a merge* <!-- .element: class="fragment" data-fragment-index="3" -->
 
+
+
 [comment]: # (|||)
 
 There are two ways of doing this
-- pull latest changes from main line (this only works if you have a remote repository) and merge to your branch BEFORE you merge back to main line <!-- .element: class="fragment" data-fragment-index="1" -->
+
+- pull latest changes from main line and merge to your branch BEFORE you merge back to main line <!-- .element: class="fragment" data-fragment-index="1" -->
+
 - rebase you branch <!-- .element: class="fragment" data-fragment-index="2" -->
 
 
 [comment]: # (|||)
 
-There are subtle differences between the two [approaches](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
+There two [approaches](https://www.atlassian.com/git/tutorials/merging-vs-rebasing) will create two, different git histories ..
 
-Generally: <!-- .element: class="fragment" data-fragment-index="1" -->
-- if you are sharing your main line of code with others, do pull+merge <!-- .element: class="fragment" data-fragment-index="1" -->
-- otherwise, rebase is fine <!-- .element: class="fragment" data-fragment-index="12 -->
-
-[comment]: # (|||)
-
-Let me demonstrate rebase...
-
-Go back to the terminal 
+The Git history is:<!-- .element: class="fragment" data-fragment-index="1" -->
+- the graph that Git builds of branches and merges <!-- .element: class="fragment" data-fragment-index="1" -->
+- allows to do time travel <!-- .element: class="fragment" data-fragment-index="2" -->
+- it can be visualized and inspected using graphical tools or the command line <!-- .element: class="fragment" data-fragment-index="3 -->
 
 [comment]: # (|||)
 
-Firstly, branch out and make some change 
+But, WHY are rebasing and merging creating different git histories?
+
+*I'm gonna attempt the impossible and look at git objects in 2 minutes*
+
+Let's take a step back .. <!-- .element: class="fragment" data-fragment-index="1" -->
+
+[comment]: # (|||)
+
+We start out in an empty working directory
+git init creates the .git, in which we'll find Git objects like: 
+- HEAD <!-- .element: class="fragment" data-fragment-index="1" -->
+- configuration <!-- .element: class="fragment" data-fragment-index="2" -->
+- objects <!-- .element: class="fragment" data-fragment-index="3" -->
+- refs <!-- .element: class="fragment" data-fragment-index="4" -->
+- .. <!-- .element: class="fragment" data-fragment-index="5" -->
+
+Initially, all these objects are empty <!-- .element: class="fragment" data-fragment-index="6" -->
+
+
+And, if I delete the .git folder, the folder is back to just a normal folder <!-- .element: class="fragment" data-fragment-index="7" -->
+
+
+[comment]: # (|||)
+
+Once we start working on files, git creates objects to track changes.
+The most important ones are:
+- stored in .git/objects <!-- .element: class="fragment" data-fragment-index="1" -->
+- .git/index is a binary file keeping track of the staging area <!-- .element: class="fragment" data-fragment-index="2" -->
+- .git/HEAD is our current branch <!-- .element: class="fragment" data-fragment-index="3" -->
+
+
+[comment]: # (|||)
+
+If you are collaborating with others, you are sharing your git history
+- it needs to be consistent between collaborators <!-- .element: class="fragment" data-fragment-index="1" -->
+- if there are differences, you'll have to reconcile the history manually <!-- .element: class="fragment" data-fragment-index="2" -->
+
+[comment]: # (|||)
+
+Let's have a look in the terminal
+
+Note:
+git log --oneline --graph 
+
+ls -la .git  
+
+cat .git/HEAD 
+
+ls -la .git/objects
+
+
+[comment]: # (|||)
+
+What rebasing your branch will do:
+
+- moves the entire new branch to being on the tip of the main branch <!-- .element: class="fragment" data-fragment-index="1" -->
+- incorporates all of your new commits commits into the mainline <!-- .element: class="fragment" data-fragment-index="2" -->
+
+*The Git history of the main line is re-written from the point in time when you branched out* <!-- .element: class="fragment" data-fragment-index="3" -->
+
+[comment]: # (|||)
+
+*Let's try the rebasing ...*
+
+[comment]: # (|||)
+
+Firstly, we need to create a new branch and make some changes
 
 ```js [1|2|3|4]
 git switch -C my_branch 'create a new branch'
@@ -474,7 +577,7 @@ git commit -m "me brancing out from main"
 
 [comment]: # (|||)
 
-Now, we go back to main and make a change
+Now, we go back to main and make some change
 
 ATTENTION! I'm adding text to file2.txt!
 
@@ -488,7 +591,7 @@ git commit -m "calling earth from main line"
 [comment]: # (|||)
 
 In our other branch, before merging our changes to main 
-**we rebase to get the latest changes** 
+**we rebase to get the latest changes from main** 
 
 ```js [1|2|3|4]
 git switch my_branch 'go back to our branch'
@@ -501,21 +604,27 @@ cat file2.txt 'Does it look correct?'
 
 Now, we're reday to merge our changes to main
 
-```js [1|2|3|4]
+```js [1|2]
 git switch main 'go back to main line'
 git merge my_branch 'we can merge'
 ```
 <!-- .element: data-id="code" -->
 
 [comment]: # (|||)
+Comparing rebasing and merge on our little example:
 
-**Recap - vocabulary**
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <figure style="text-align: center; width: 48%;">
+    <img src="media/rebasing.png" alt="Irebase" style="width: 100%;">
+    <figcaption>Git history with rebasing</figcaption>
+  </figure>
+  <figure style="text-align: center; width: 48%;">
+    <img src="media/merge.png" alt="merge" style="width: 100%;">
+    <figcaption>.. and with merge</figcaption>
+  </figure>
+</div>
 
-Branches allow to work on code in isolation <!-- .element: class="fragment" data-fragment-index="1" -->
-
-The pointer HEAD is always pointing to our current state <!-- .element: class="fragment" data-fragment-index="2" -->
-
-Merge conflicts occur when the same file has been edited in more than one branch <!-- .element: class="fragment" data-fragment-index="3" -->
+Rebasing is used to obtain a clear, linear git history
 
 
 [comment]: # (|||)
@@ -564,11 +673,6 @@ Mine looks like this
 
 [comment]: # (|||)
 
-So, now it's time for a deep dive on how Git manages objects..
-What is actually a branch??
-
-[comment]: # (|||)
-
 Ready for some time travel?
 
 ![time](media/time_travel.jpg) <!-- .element: style="max-height:30vh; max-width:60vw; image-rendering: crisp-edges;" -->
@@ -594,7 +698,6 @@ creates a new commit on top of your git history containing the old state<!-- .el
 **git checkout 'commit-hash'** 
 
 let's you access a previous commit BUT puts your work dir in "detached HEAD" state  <!-- .element: class="fragment" data-fragment-index="3" -->
-.. which you'll have to clean up afterwards
 
 [comment]: # (|||)
 
@@ -606,12 +709,60 @@ But most people use brute force with (out of laziness)
 
 **reset  - - hard**
 
-Go back to your terminal...
+[comment]: # (|||)
+
+Today, I'd like to demonstrate
+- checkout <!-- .element: class="fragment" data-fragment-index="1" -->
+- reset <!-- .element: class="fragment" data-fragment-index="2" -->
+
+Go back to the terminal ... <!-- .element: class="fragment" data-fragment-index="3" -->
+
 
 [comment]: # (|||)
 
-But! Let's just remind ourselves ... 
-we are entering muddy waters
+**Checkout**
+- a command that has many usages  <!-- .element: class="fragment" data-fragment-index="1" -->
+- we'll focus on the time travelling part <!-- .element: class="fragment" data-fragment-index="2" -->
+
+Imagine that you'd like to reset a file to a previous state ..<!-- .element: class="fragment" data-fragment-index="2" -->
+
+
+[comment]: # (|||)
+
+*Firstly, identify the commit you want to checkout*
+
+```js [1|2-3]
+git log 'the raw version'
+git log --pretty --oneline --graph 'pretty version'
+'to quit, press "q"'
+```
+<!-- .element: data-id="code" -->
+
+copy the 7 caracter commit-hash
+
+[comment]: # (|||)
+
+*Now, you can checkout a file (or the entire repo) at that moment in time*
+
+```js [1|2]
+git checkout <insert copied hash> -f file1.txt
+cat file1.txt 'check that we are looking at a previous version'
+```
+<!-- .element: data-id="code" -->
+
+Now, you can either add and commit it or go back by doing a 
+```js
+git checkout main -f file1.txt
+```
+<!-- .element: data-id="code" -->
+
+
+
+[comment]: # (|||)
+
+**Reset**
+
+we will be rewriting history and can potentially cause damage
 
 ![restore](media/the_dark_zone.png) <!-- .element: style="max-height:60vh; max-width:100vw; image-rendering: crisp-edges;" -->
 
@@ -646,7 +797,7 @@ Notice how the git log looks like now
 
 **BEWARE!**
 
-If you're sharing your branch with others, it will screw up their git repo <!-- .element: class="fragment" data-fragment-index="1" -->
+If you're sharing your branch with others, it will screw up their git history <!-- .element: class="fragment" data-fragment-index="1" -->
 
 If you're on a throw away branch or your own branch, you're fine<!-- .element: class="fragment" data-fragment-index="2" -->
 
@@ -669,18 +820,9 @@ Instead, aim for linear
 
 ![Linear](media/linear_history.png)
 
-How to do that? Beyond the scope of this workshop
-
-[comment]: # (|||)
-
-Some advice 
-- try establish a common way of working with git on your team
-	- several patterns exists
-- use [squashing](https://www.geeksforgeeks.org/git/git-squash/) to avoid too many small commits
-
-[comment]: # (!!!)
-
-How to squash
+To obtain this, people use
+- rebasing
+- [squashing](https://www.geeksforgeeks.org/git/git-squash/) to avoid too many small commits
 
 
 [comment]: # (!!!)
@@ -731,7 +873,7 @@ This was created using [markdown-slides](https://gitlab.com/da_doomer/markdown-s
 
 Happy coding!
 
-[comment]: # (!!! data-background-video="media/Novonesis_Logo_Animated_Algae_MossBG.mp4", data-background-video-muted data-background-opacity="0.2")
+
 
 
 
