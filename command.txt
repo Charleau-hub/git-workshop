@@ -80,6 +80,7 @@ git add file1.txt                               # add the file to staging
 git commit -m "fixed merge conflict"            # commit
 
 
+
 # How to rebase before a merge to get the latest changes from the main line
 
 git switch -C my_branch                         # create a new branch
@@ -100,3 +101,28 @@ cat file2.txt                                   # Does it look correct?
 
 git switch main                                 # go back to main line
 git merge my_branch                             # we can merge
+
+
+# The same thing, but with merge
+
+git switch -C my_branch                         # create a new branch
+echo 'this is from my brand new branch' >> file1.txt # append some text
+cat file1.txt                                   # was text added?
+git add file1.txt                               # add the file to staging
+git commit -m "me brancing out from main"       # commit
+
+git switch main                                 # go back to main line
+echo 'my main line is calling earth' >> file2.txt # append some text
+git add file2.txt                               # add the file to staging
+git commit -m "calling earth from main line"    # commit your changes
+
+git switch my_branch                            # go back to the first branch
+git merge main                                  # this is where we get the latest changes from main
+cat file1.txt                                   # Does it look correct?
+cat file2.txt                                   # Does it look correct?
+
+git switch main                                 # go back to main line
+git merge my_branch                             # we can merge, not getting any issues
+
+
+
