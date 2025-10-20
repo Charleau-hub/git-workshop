@@ -466,48 +466,12 @@ Let's try a real life scenario with branching and merging out in Github
 ## A closer look at how Git keeps track of changes
 (This is the nerdy chapter)
 
-[comment]: # (|||)
-
-*Remember the merge conflict?*
-
-Working on the same files is source of trouble <!-- .element: class="fragment" data-fragment-index="1" -->
-
-<div style="font-size: 2em;">Best practice</div> <!-- .element: class="fragment" data-fragment-index="2" -->
-
-*Be certain to get latest changes from the main line BEFORE a merge* <!-- .element: class="fragment" data-fragment-index="3" -->
-
-
-
-[comment]: # (|||)
-
-There are two ways of doing this
-
-- pull latest changes from main line and merge to your branch BEFORE you merge back to main line <!-- .element: class="fragment" data-fragment-index="1" -->
-
-- rebase you branch <!-- .element: class="fragment" data-fragment-index="2" -->
-
-
-[comment]: # (|||)
-
-There two [approaches](https://www.atlassian.com/git/tutorials/merging-vs-rebasing) will create two, different git histories ..
-
-The Git history is:<!-- .element: class="fragment" data-fragment-index="1" -->
-- the graph that Git builds of branches and merges <!-- .element: class="fragment" data-fragment-index="1" -->
-- allows to do time travel <!-- .element: class="fragment" data-fragment-index="2" -->
-- it can be visualized and inspected using graphical tools or the command line <!-- .element: class="fragment" data-fragment-index="3 -->
-
-[comment]: # (|||)
-
-But, WHY are rebasing and merging creating different git histories?
-
-*I'm gonna attempt the impossible and look at git objects in 2 minutes*
-
-Let's take a step back .. <!-- .element: class="fragment" data-fragment-index="1" -->
 
 [comment]: # (|||)
 
 We start out in an empty working directory
-git init creates the .git, in which we'll find Git objects like: 
+
+**git init** creates the .git, in which we'll find Git objects like: 
 - HEAD <!-- .element: class="fragment" data-fragment-index="1" -->
 - configuration <!-- .element: class="fragment" data-fragment-index="2" -->
 - objects <!-- .element: class="fragment" data-fragment-index="3" -->
@@ -523,16 +487,25 @@ And, if I delete the .git folder, the folder is back to just a normal folder <!-
 [comment]: # (|||)
 
 Once we start working on files, git creates objects to track changes.
-The most important ones are:
-- stored in .git/objects <!-- .element: class="fragment" data-fragment-index="1" -->
+
+The most important ones are stored in .git/objects <!-- .element: class="fragment" data-fragment-index="1" -->
 - .git/index is a binary file keeping track of the staging area <!-- .element: class="fragment" data-fragment-index="2" -->
 - .git/HEAD is our current branch <!-- .element: class="fragment" data-fragment-index="3" -->
 
 
 [comment]: # (|||)
 
-If you are collaborating with others, you are sharing your git history
-- it needs to be consistent between collaborators <!-- .element: class="fragment" data-fragment-index="1" -->
+The Git history is
+
+- the graph that Git builds of branches and merges <!-- .element: class="fragment" data-fragment-index="1" -->
+- allows to do time travel <!-- .element: class="fragment" data-fragment-index="2" -->
+- it can be visualized and inspected using graphical tools or the command line <!-- .element: class="fragment" data-fragment-index="3 -->
+
+
+[comment]: # (|||)
+
+If you are collaborating with others, you are sharing your git history and the git objects
+- consistency between collaborators <!-- .element: class="fragment" data-fragment-index="1" -->
 - if there are differences, you'll have to reconcile the history manually <!-- .element: class="fragment" data-fragment-index="2" -->
 
 [comment]: # (|||)
@@ -548,19 +521,51 @@ cat .git/HEAD
 
 ls -la .git/objects
 
+show git graph
+
 
 [comment]: # (|||)
 
-What rebasing your branch will do:
+*Remember the merge conflict?*
 
-- moves the entire new branch to being on the tip of the main branch <!-- .element: class="fragment" data-fragment-index="1" -->
-- incorporates all of your new commits commits into the mainline <!-- .element: class="fragment" data-fragment-index="2" -->
+Working on the same files is source of trouble <!-- .element: class="fragment" data-fragment-index="1" -->
+
+*Be certain to get latest changes from the main line BEFORE a merge* <!-- .element: class="fragment" data-fragment-index="2" -->
+<div style="font-size: 0.5em;">(even seasoned developers will forget this from time to time and get nasty suprises)</div> <!-- .element: class="fragment" data-fragment-index="3" -->
+
+[comment]: # (|||)
+
+
+There are two [approaches](https://www.atlassian.com/git/tutorials/merging-vs-rebasing) to get around this:
+
+- pull latest changes from main line and merge to your branch BEFORE you merge back to main line <!-- .element: class="fragment" data-fragment-index="1" -->
+
+- rebase you branch <!-- .element: class="fragment" data-fragment-index="2" -->
+
+They differ in the way your git history looks afterwards <!-- .element: class="fragment" data-fragment-index="3" -->
+
+[comment]: # (|||)
+
+Rebasing your branch will:
+
+- move the entire new branch to being on the tip of the main branch <!-- .element: class="fragment" data-fragment-index="1" -->
+- incorporate all of your new commits commits into the mainline <!-- .element: class="fragment" data-fragment-index="2" -->
 
 *The Git history of the main line is re-written from the point in time when you branched out* <!-- .element: class="fragment" data-fragment-index="3" -->
 
+This is a problem if you are sharing you main line with others<!-- .element: class="fragment" data-fragment-index="3" -->
+
 [comment]: # (|||)
 
-*Let's try the rebasing ...*
+Merging your branch with main will:
+
+- incorporate the main line INTO your branch <!-- .element: class="fragment" data-fragment-index="1" -->
+
+*The Git history of the main line is preserved* <!-- .element: class="fragment" data-fragment-index="3" -->
+
+[comment]: # (|||)
+
+*We don't have a remote main line with changes, so let's try the rebasing ...*
 
 [comment]: # (|||)
 

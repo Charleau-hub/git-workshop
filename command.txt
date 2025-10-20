@@ -51,7 +51,7 @@ git add file1.txt                               # add the file to staging
 git status                                      # check that it was added
 git commit -m "fixed the bug"                   # commit and add a meaningful message
 
-# Merge with mainline of commented
+# Merge with mainline of code
 
 git switch main                                 # go back to main branch
 cat file1.txt                                   # notice, our file is back to old state
@@ -81,6 +81,17 @@ git commit -m "fixed merge conflict"            # commit
 
 
 
+### looking at .git objects - the internals of git
+
+
+git log --oneline --graph                       # prints a graph of you history
+ls -la .git                                     # lists the objects in the .git folder
+cat .git/HEAD                                   # prints our current branch
+ls -la .git/objects                             # listing the objects
+
+
+
+
 # How to rebase before a merge to get the latest changes from the main line
 
 git switch -C my_branch                         # create a new branch
@@ -103,7 +114,7 @@ git switch main                                 # go back to main line
 git merge my_branch                             # we can merge
 
 
-# The same thing, but with merge
+# The same thing, but with merge. If you have a remote, you'd pull the latest changes from main
 
 git switch -C my_branch                         # create a new branch
 echo 'this is from my brand new branch' >> file1.txt # append some text
@@ -122,7 +133,42 @@ cat file1.txt                                   # Does it look correct?
 cat file2.txt                                   # Does it look correct?
 
 git switch main                                 # go back to main line
-git merge my_branch                             # we can merge, not getting any issues
+git merge my_branch                             # you're good to go, no changes
 
 
 
+
+### Travelling in time
+
+
+# checking out a file
+
+git log                                         # the raw version - to quit, press "q"
+git log --pretty --oneline --graph              # the representation as a graph pretty version - to quit, press "q"'
+
+copy the 7 caracter commit-hash
+
+git checkout <insert copied hash> -f file1.txt  # checking out the version of that moment in time
+cat file1.txt                                   # check that we are looking at a previous version
+git checkout main -f file1.txt                  # go back to your current version
+
+# rewrite history with reset
+
+git log --pretty --oneline --graph              # copy the hash you wish to reset to
+                                                # to quit, press "q"   
+git reset <insert commit-hash> --hard           # entirely erases what happened after this commit
+git log --pretty --oneline --graph              # did it work?
+
+
+### you best friends when working with git
+git status
+git log --graph
+git checkout
+git add
+git reset
+git commit -m ""
+git config list
+
+Help can be found like this:
+git <command> --help
+git --help                                      # will list all commands
