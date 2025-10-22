@@ -12,6 +12,14 @@ cd git_workshop                             # we change directory (cd) to that f
 git init                                    # now, we have created a new git project
 ls -la                                      # lists the content, notice the hidden .git folder
 
+# Let's check that we are all working from the branch main
+
+git status                                  # returns our current status
+
+If this commands returns "On branch main" we're all good to go
+If it returns "On branch master", we'll need to create and switch to that branch:
+
+git switch -C main                          # creating a branch "main" and switching to it
 
 # creating some files and our first snapshot
 
@@ -121,8 +129,26 @@ git merge main                                  # this is where we get the lates
 cat file1.txt                                   # Does it look correct?
 cat file2.txt                                   # Does it look correct?
 
-git switch main                                 # go back to main line
-git merge my_branch                             # we can merge, not getting any issues
+git switch main                                 # go back to main line to continue working
+
+In reald life, you'd probably be creating a merge request to main line at this point
 
 
+### Exploring your code history ###
 
+git log                                         # the raw log, press 'q' to quit
+git log --online --graph                        # pretty, graphical version, press 'q' to quit
+
+# how to checkout a previous state
+git log --online --graph                        # look at the log, choose a commit
+
+copy the 7 caracter commit-hash
+
+git checkout <insert copied hash> -f file1.txt  # checkout a file at that commit
+cat file1.txt                                   yeah, it's the old version!
+
+Now, you can either add and commit or go back
+git checkout main -f file1.txt                  # go back to our current state
+
+# How to reset (and erase) bad commits
+git reset --hard <insert your hash here>
